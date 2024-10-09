@@ -2,17 +2,19 @@
 
 <mark>STATUS: This is a work in progress and supports a discussion of best practices.</mark>
 
-
-```
-how to install
-
-Step 1: Install the local module
-Using git submodule:
-
-git submodule add git@github.com:catalyst/moodle-tool_mfa.git admin/tool/mfa
-```
-
 ## Index of best practices to review
+
+
+
+
+
+IMPLEMENT THESE:
+
+* https://github.com/catalyst/catalyst-moodle-workflows?tab=readme-ov-file#rocket-quick-start
+* https://github.com/moodlehq/moodle-plugin-ci/issues/322
+* https://github.com/moodlehq/moodle-plugin-ci/issues/323
+
+
 
 
 

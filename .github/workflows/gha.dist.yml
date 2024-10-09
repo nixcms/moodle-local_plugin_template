@@ -1,0 +1,10 @@
+# .github/workflows/ci.yml
+name: ci
+
+on: [push, pull_request]
+
+jobs:
+  ci:
+    uses: moodlehq/moodle-plugin-ci/gha.dist.yml@main
+
+# https://github.com/moodlehq/moodle-plugin-ci/issues/323
