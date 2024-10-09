@@ -130,9 +130,11 @@ Supported Moodle versions: [[ LINK TO A BUILD BADGE FOR EACH SUPPORTED VERSION ]
 
 ## Features
 
-Here's what you get with *High Five Moodle Plugin*:
+Here's what you get with *High Five*:
 
-* Feature [[ ACTION PHOTOS ]]
+* :raised_hand_with_fingers_splayed: A high five page available on your site at /local/high_five/
+
+  <img src="screenshots/screenshot-1.jpg" width=400>
 
 ## Quick start playground
 
