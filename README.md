@@ -138,11 +138,11 @@ Here's what you get with *High Five*:
 
 ## Quick start playground
 
-:runner: Run a Moodle playground site with *High Five* on your own computer in under 6 minutes! Zero programming or Moodle experience required.
+:runner: Run a Moodle playground site with *High Five* on your own computer in under 5 minutes! Zero programming or Moodle experience required.
 
 1. Install a Docker system:
 
-   1. On macOS we recommend the open source [Homebrew package manager](https://brew.sh) and then [install Colima](https://github.com/abiosoft/colima?tab=readme-ov-file#installation) and upgrade or [start Colima](https://github.com/abiosoft/colima?tab=readme-ov-file#usage)
+   1. On macOS we currently recommend [OrbStack](https://orbstack.dev/). This is the only software which can install Moodle in under 5 minutes. We would prefer if an open source product can provide this experince, but none such exists. See [references](#references) below if you may prefer another option.
    2. On Windows (TODO: add open source recommendation)
    3. On Linux (TODO: add open source recommendation)
 
