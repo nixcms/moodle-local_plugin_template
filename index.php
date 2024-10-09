@@ -23,19 +23,19 @@
  */
 
 require_once('../../config.php');
-// TODO: only make this page available to logged in users
+require_login();
 
 $pageurl = new moodle_url('/local/high_five/index.php');
 
-// TODO: localize this string
+// TODO: Localize this string.
 $heading = 'Latest high five';
 
 $PAGE->set_url($pageurl);
 $PAGE->set_context(context_system::instance());
 $PAGE->set_title(format_string($heading));
 
-$latestHighFiveString = 'Latest high five is from Will.';
-$PAGE->set_heading(format_string($latestHighFiveString));
+$latesthighfivestring = 'Latest high five is from Will.';
+$PAGE->set_heading(format_string($latesthighfivestring));
 echo $OUTPUT->header();
 
 echo $OUTPUT->footer();
