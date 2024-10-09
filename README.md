@@ -1,59 +1,27 @@
 # Moodle plugin template
 
+Use this template as a starting point for any Moodle plugin that you want other people to install.
+
 <mark>STATUS: This is a work in progress and supports a discussion of best practices.</mark>
 
-## Index of best practices to review
-
-
-
-
-
-
-TODO:
-
-- how to compile JS https://moodledev.io/general/development/tools/nodejs
-- how to compile AMD
-  -  https://github.com/h5p/moodle-mod_hvp
-  -  https://github.com/danmarsden/moodle-mod_attendance/tree/MOODLE_404_STABLE/amd
-- install notes https://moodledev.io/general/development/tools/nodejs
-- build strategy https://github.com/marcusgreen/moodle-qbank_bulktags/blob/main/.github/workflows/moodle-ci.yml
-  - https://moodlehq.github.io/moodle-plugin-ci/
-
-- CI
-  - https://github.com/danmarsden/moodle-mod_attendance/actions
-    - recognizes https://github.com/catalyst/catalyst-moodle-workflows
-
-- best practices
-  - https://github.com/danmarsden/moodle-mod_attendance
-  - Use this template as a starting point for any Moodle plugin that you want other people to include in their projects.
-
-EXAMPLES:
-
-MARKETING:
-
-- Post to https://moodle.org/mod/forum/discuss.php?d=462107#p1855356
-- Post to https://github.com/sebsoftnl/moodle-block_coupon/issues/24
-- Post to new Moodle forum thread
-- 
-
-
+![File listing](screenshots/file-listing.png)
 
 ## Features
 
-Your new Moodle plugin will immediately have working code, build system and implement these best practices which all modules should use:
+Your new Moodle plugin will immediately have working code, a build system and implement these best practices which all modules should use:
 
-- [x] Setup, build and testing instructions for people using your modules
-- [x] Automated testing that runs on GitHub Actions
-- [ ] Localization for all strings
+- [x] Playground and install instructions for people using your plugin
+- [x] Automated tests that run on GitHub Actions
+- [x] Localization for all strings
+- [x] Automated code style checks
 - [ ] Unit tests for all classes
 - [ ] Behat tests for all features
-- [ ] Automated code style checks
 - [ ] Automated code coverage checks
 - [ ] Automated static analysis checks
 - [ ] Logging for all actions
 - [ ] Backup and restore support
 
-This repository is a fully-functioning plugin demonstrating the best practices by implementing toy functionality with these features. You can rip these features out or modify them. But if you need these kinds of features, there are implemented here as an example, including references to best practices.
+This repository is a fully-functioning plugin demonstrating the best practices by implementing toy functionality with many features your own plugin might need. You can rip these features out or modify them. But if you need these kinds of features, there are implemented here as an example, including references to best practices.
 
 - [ ] **Database initialization and upgrade** scripts
 - [ ] **Dashboard Context block** (`CONTEXT_USER`) to display content on student dashboards ("My home")
@@ -64,8 +32,31 @@ This repository is a fully-functioning plugin demonstrating the best practices b
 - [ ] **Scheduled task** to run background processing
 - [ ] **Custom JavaScript** for the user interface, which is built using (AMD??)
 
+## Index of best practices to review
 
-## Make your own template
+Here are further best practices to review which may help when we are implementing the remaining checkboxes above.
+
+- how to compile JS https://moodledev.io/general/development/tools/nodejs
+- how to compile AMD
+  -  https://github.com/h5p/moodle-mod_hvp
+  -  https://github.com/danmarsden/moodle-mod_attendance/tree/MOODLE_404_STABLE/amd
+- install notes https://moodledev.io/general/development/tools/nodejs
+- build strategy https://github.com/marcusgreen/moodle-qbank_bulktags/blob/main/.github/workflows/moodle-ci.yml
+  - https://moodlehq.github.io/moodle-plugin-ci/
+- best practices
+  - https://github.com/danmarsden/moodle-mod_attendance
+  - Use this template as a starting point for any Moodle plugin that you want other people to include in their projects.
+
+MARKETING:
+
+- Post to https://moodle.org/mod/forum/discuss.php?d=462107#p1855356
+- Post to https://github.com/sebsoftnl/moodle-block_coupon/issues/24
+- Post to new Moodle forum thread
+
+
+
+
+## Make your own plugin
 
 Here is what you need to do to make your own Moodle plugin:
 
@@ -73,12 +64,9 @@ Here is what you need to do to make your own Moodle plugin:
   - The name of your repository must follow the format `moodle-<type>_<pluginname>`:
     - `<type>` is one of the "component names" listed in the [Moodle plugin types documentation](https://moodledev.io/docs/apis/plugintypes)
     - `<pluginname>` begins with a lowercase letter; followed by lowercase letters, numbers and underscores (but no consecutive underscores); and ends with a lowercase letter or number (as per [requirements](https://moodledev.io/docs/apis/plugintypes))
-    - Best practice: We do not see documentation that this exact repository name is required, nor [consistent usage in the wild](https://github.com/search?q=path%3A%2Fdb%2Finstall.xml&type=code&ref=advsearch), nevertheless we assert this is best practice.
-- [ ] ...
-- [ ] Edit the README contents below, starting at "High five Moodle plugin" to describe your product instead of the high five product.
+    - We do not see documentation that this exact repository name is required, nor [consistent usage in the wild](https://github.com/search?q=path%3A%2Fdb%2Finstall.xml&type=code&ref=advsearch), nevertheless we assert this is best practice.
+- [ ] Edit the README contents below, starting at "High Five plugin" to describe your product instead of the High Five product.
 - [ ] Delete this line from your README and everything above it. Publish your repository. Release version 1.0.0!
-
-
 
 ---
 
