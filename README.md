@@ -8,47 +8,9 @@
 
 
 
-IMPLEMENT THESE:
-
-* https://github.com/catalyst/catalyst-moodle-workflows?tab=readme-ov-file#rocket-quick-start
-* https://github.com/moodlehq/moodle-plugin-ci/issues/322
-* https://github.com/moodlehq/moodle-plugin-ci/issues/323
-
-
-
-
-
-* Download moodle
-  * BUG: https://tracker.moodle.org/browse/MDL-83419
-
-* Show which Moodle versions are supported
-  * …
-* Quick start 
-  * …
-* 
-
-
-
-
-
-- Spinning up a quick install
-  - https://github.com/moodlehq/moodle-docker
-- CI
-  - [Official Moodle CI for plugins](https://github.com/moodlehq/moodle-plugin-ci/tree/f722b93722902e4fc496fe2afa00e03230107f9f)
-    - https://github.com/moodlehq/moodle-plugin-ci/issues/323
-
-
-
-
-
 
 TODO:
 
-- see notes at https://github.com/moodlehq/moodle-docker?tab=readme-ov-file
-- blocker https://github.com/moodlehq/moodle-php-apache/issues/188 or add a monthly maintenance step or a cron job CI to check for new versions and update our docker-compose file
-- workaround https://github.com/moodlehq/moodle-docker/issues/287#issuecomment-2355056822
-- always do testing https://github.com/moodlehq/moodle-docker/issues/304
-- https://moodledev.io/general/development/tools/generator
 - how to compile JS https://moodledev.io/general/development/tools/nodejs
 - how to compile AMD
   -  https://github.com/h5p/moodle-mod_hvp
@@ -80,8 +42,8 @@ MARKETING:
 
 Your new Moodle plugin will immediately have working code, build system and implement these best practices which all modules should use:
 
-- [ ] Setup, build and testing instructions for people using your modules
-- [ ] Automated testing that runs on GitHub Actions
+- [x] Setup, build and testing instructions for people using your modules
+- [x] Automated testing that runs on GitHub Actions
 - [ ] Localization for all strings
 - [ ] Unit tests for all classes
 - [ ] Behat tests for all features
@@ -128,7 +90,7 @@ Here is what you need to do to make your own Moodle plugin:
 
 Allow your students to high five! Make new friends and engage, engage, engage!
 
-Supported Moodle versions: [[ LINK TO A BUILD BADGE FOR EACH SUPPORTED VERSION ]]
+Supported Moodle versions: [![ci](https://github.com/fulldecent/moodle-local_plugin_template/actions/workflows/ci.yml/badge.svg)](https://github.com/fulldecent/moodle-local_plugin_template/actions/workflows/ci.yml)
 
 ## Features
 
@@ -198,7 +160,7 @@ Here's what you get with *High Five*:
 
    *:information_source: If you see a bunch of stuff and "Update Moodle database now", then click that button and wait. On a M1 Mac with 8GB ram, we saw this take 5 minutes for the page to finish loading.*
 
-7. To completely kill your test site so that next time you will start with a blank slate:
+7. To completely kill your playground so that next time you will start with a blank slate:
 
    ```sh
    bin/moodle-docker-compose down --volumes --remove-orphans
@@ -222,3 +184,8 @@ To install High Five on your quality assurance server or your production server,
 1. This module is built based on [best practices documented in moodle-local_plugin_template](https://github.com/fulldecent/moodle-local_plugin_template).
 2. Setting up Docker
    1. We would prefer an open-source-licensed Docker implementation that runs at native speed on Mac, Linux and Windows. For Mac, you may prefer to [install Colima](https://github.com/abiosoft/colima?tab=readme-ov-file#installation) which is open source but about 5x slower than the OrbStack recommended above.
+3. Setting up playground
+   1. If you require a few courses and users to test your plugin, you may want to look at the [generator tool](https://moodledev.io/general/development/tools/generator).
+4. Continuous integration
+   1. This plugin uses [the Moodle CI suite recommended by Catalyst](https://github.com/catalyst/catalyst-moodle-workflows)
+   2. Perhaps we would prefer the CI suite provided by Moodle, but their approach [does not allow you to set it once and forget it](https://github.com/moodlehq/moodle-plugin-ci/issues/323)
