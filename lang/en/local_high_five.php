@@ -15,25 +15,12 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * High five display
+ * English strings
  *
  * @package    local_high_five
  * @copyright  William Entriken
  * @license    http://opensource.org/licenses/MIT MIT License
  */
 
-require_once('../../config.php');
-require_login();
-
-$pageurl = new moodle_url('/local/high_five/index.php');
-
-$PAGE->set_url($pageurl);
-$PAGE->set_context(context_system::instance());
-$PAGE->set_title(format_string(get_string('pluginname', 'local_high_five')));
-
-$fromwho = 'Will';
-$latesthighfivestring = get_string('latesthighfive', 'local_high_five', $fromwho);
-$PAGE->set_heading(format_string($latesthighfivestring));
-echo $OUTPUT->header();
-
-echo $OUTPUT->footer();
+$string['pluginname'] = 'High Five';
+$string['latesthighfive'] = 'Latest high five is from {$a}.';
