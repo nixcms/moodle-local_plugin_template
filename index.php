@@ -1,3 +1,41 @@
 <?php
+// This file is part of the High Five plugin for Moodle
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-echo 'High five successful! 🖐️';
+/**
+ * High five display
+ *
+ * @package    local_high_five
+ * @copyright  William Entriken
+ * @license    http://opensource.org/licenses/MIT MIT License
+ */
+
+require_once('../../config.php');
+// TODO: only make this page available to logged in users
+
+$pageurl = new moodle_url('/local/high_five/index.php');
+
+// TODO: localize this string
+$heading = 'Latest high five';
+
+$PAGE->set_url($pageurl);
+$PAGE->set_context(context_system::instance());
+$PAGE->set_title(format_string($heading));
+
+$latestHighFiveString = 'Latest high five is from Will.';
+$PAGE->set_heading(format_string($latestHighFiveString));
+echo $OUTPUT->header();
+
+echo $OUTPUT->footer();
