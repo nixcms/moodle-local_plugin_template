@@ -167,6 +167,10 @@ To install High Five on your quality assurance server or your production server,
 
 2. Load your website in the browser to set up plugins.
 
+## Contributing
+
+Please send PRs to our [main branch](https://github.com/fulldecent/moodle-local_plugin_template).
+
 ## References
 
 1. This module is built based on [best practices documented in moodle-local_plugin_template](https://github.com/fulldecent/moodle-local_plugin_template).
