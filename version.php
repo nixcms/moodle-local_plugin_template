@@ -18,16 +18,16 @@
  * Version information
  *
  * @package    local_high_five
- * @copyright  William Entriken
+ * @copyright  2024 William Entriken <github.com@phor.net>
  * @license    http://opensource.org/licenses/MIT MIT License
  */
 
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_high_five';
-$plugin->release = 2024100900;
+$plugin->release = '1.0';
 $plugin->version = 2024100900;
-$plugin->requires = 2024041200;
+$plugin->requircdes = 2024041200;
 $plugin->maturity = MATURITY_STABLE;
 $plugin->supported = [405, 405];
 $plugin->cron = 0;
