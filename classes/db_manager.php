@@ -62,7 +62,7 @@ class db_manager
         $record = new \stdClass();
         $record->name = $name;
 
-        return $this->db->insert_record('high_five_table', $record);
+        return $this->db->insert_record('local_high_five', $record);
     }
 
     /**
@@ -71,7 +71,7 @@ class db_manager
      * @return array Array of records from the high_five_table.
      */
     public function get_all_data() {
-        return $this->db->get_records('high_five_table');
+        return $this->db->get_records('local_high_five');
     }
 
     /**
@@ -81,7 +81,7 @@ class db_manager
      * @return stdClass|false The record object or false if not found.
      */
     public function get_data_by_id($id) {
-        return $this->db->get_record('high_five_table', ['id' => $id]);
+        return $this->db->get_record('local_high_five', ['id' => $id]);
     }
 
     /**
@@ -95,7 +95,7 @@ class db_manager
         $record = $this->get_data_by_id($id);
         if ($record) {
             $record->name = $name;
-            return $this->db->update_record('high_five_table', $record);
+            return $this->db->update_record('local_high_five', $record);
         }
         return false;
     }
@@ -107,6 +107,6 @@ class db_manager
      * @return bool True on success, false on failure.
      */
     public function delete_data($id) {
-        return $this->db->delete_records('high_five_table', ['id' => $id]);
+        return $this->db->delete_records('local_high_five', ['id' => $id]);
     }
 }

@@ -29,7 +29,7 @@ function xmldb_local_high_five_install() {
     global $DB;
 
     // Create the necessary database table(s)
-    $table = new xmldb_table('high_five_table');
+    $table = new xmldb_table('local_high_five');
 
     // Define the fields for the table, add indexes, keys, etc. here
 
