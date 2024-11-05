@@ -1,20 +1,53 @@
 <?php
+// This file is part of Moodle - https://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle; if not, see <https://www.gnu.org/licenses/>.
+
 /**
- * db_manager.php
+ * Class db_manager for managing database interactions for the High Five plugin.
  *
- * This file contains the db_manager class, which encapsulates database
- * interactions for the High Five plugin. It provides methods for creating,
- * reading, updating, and deleting data in the high_five_table.
+ * @package     local_high_five
+ * @copyright   2024 William Entriken <github.com@phor.net>
+ * @license     http://opensource.org/licenses/MIT MIT License
  */
 
 namespace local_high_five;
 
-defined('MOODLE_INTERNAL') || die();
+use moodle_database;
+use dml_exception;  // Import dml_exception to handle potential exceptions
 
-class db_manager {
-    private $db;
+/**
+ * Class db_manager
+ *
+ * Manages database interactions for the High Five plugin.
+ */
+class db_manager
+{
+    /**
+     * @var moodle_database Database connection instance.
+     */
+    protected $db;
 
-    public function __construct() {
+    /**
+     * db_manager constructor.
+     *
+     * Initializes the database connection.
+     *
+     * @throws dml_exception If the database connection cannot be established.
+     */
+    public function __construct()
+    {
         global $DB;
         $this->db = $DB;
     }
