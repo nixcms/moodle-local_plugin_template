@@ -37,10 +37,17 @@ function xmldb_local_high_five_upgrade($oldversion) {
 
     $dbman = $DB->get_manager();
 
-    // For further information please read {@link https://docs.moodle.org/dev/Upgrade_API}.
-    //
-    // You will also have to create the db/install.xml file by using the XMLDB Editor.
-    // Documentation for the XMLDB Editor can be found at {@link https://docs.moodle.org/dev/XMLDB_editor}.
+    // Check if the plugin is being upgraded to a newer version.
+    if ($oldversion < 2024100900) { // Old version check
+        // Example: Add a table or perform a schema update
+        if (!$dbman->table_exists('local_high_five')) {
+            $table = new xmldb_table('local_high_five');
+            // Define fields and indexes for the table here
+            $dbman->create_table($table);
+        }
+        upgrade_plugin_savepoint(true, 2024100900, 'local', 'high_five');
+    }
 
+    // Add additional checks for future versions as needed.
     return true;
 }
