@@ -6,7 +6,7 @@ Use this template as a starting point for developing Moodle plugins.
 
 ![File listing](docs/images/file-listing.png)
 
-## Key Features
+## Key features
 
 This template provides a structured, best-practice-compliant foundation for developing Moodle plugins, including:
 
@@ -29,7 +29,7 @@ This repository offers a functional example of a Moodle plugin, with features li
 
 You can use these features as they are, modify them, or remove what you don’t need.
 
-## Best Practices and Resources
+## Best practices and resources
 
 Follow these best practices to enhance and maintain your plugin:
 
@@ -40,7 +40,7 @@ Follow these best practices to enhance and maintain your plugin:
 - **CI Setup:** [Moodle CI Guide](https://moodlehq.github.io/moodle-plugin-ci/)
 - **General Examples:** [attendance plugin](https://github.com/danmarsden/moodle-mod_attendance)
 
-## Making Your Own Plugin
+## Making your own plugin
 
 1. **Fork this repository** and rename it according to Moodle conventions:
     - Format: `moodle-<type>_<pluginname>` (e.g., `moodle-local_example`)
@@ -52,7 +52,7 @@ Follow these best practices to enhance and maintain your plugin:
 
 ---
 
-# High Five Plugin
+# High Five plugin
 
 Enable students to "high five" each other! Enhance engagement and community.
 
@@ -63,7 +63,7 @@ Supported Moodle versions: ![CI status](https://github.com/fulldecent/moodle-loc
 - 🎉 High Five page at `/local/high_five/`
   <img src="docs/images/greeting.png" width=400>
 
-## Quick Start with Playground
+## Quick start with playground
 
 Set up a Moodle environment in minutes for testing your plugin locally:
 
