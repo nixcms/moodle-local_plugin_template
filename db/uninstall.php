@@ -1,5 +1,5 @@
 <?php
-// This file is part of the High Five plugin for Moodle
+// This file is part of Moodle - https://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -12,22 +12,26 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * Version information
+ * Code to be executed after the plugin's database schema has been installed is defined here.
  *
- * @package    local_high_five
- * @copyright  2024 William Entriken <github.com@phor.net>
- * @license    http://opensource.org/licenses/MIT MIT License
+ * @package     local_high_five
+ * @copyright   2024 William Entriken <your@mail.com>
+ * @license     http://opensource.org/licenses/MIT MIT License
  */
 
-defined('MOODLE_INTERNAL') || die();
+/**
+ * Custom code to be run on installing the plugin.
+ */
+function xmldb_local_high_five_uninstall() {
 
-$plugin->component = 'local_high_five';
-$plugin->release = '1.0';
-$plugin->version = 2024100900;
-$plugin->requircdes = 2024041200;
-$plugin->maturity = MATURITY_STABLE;
-$plugin->supported = [405, 405];
-$plugin->cron = 0;
+    global $DB;
+
+    $dbman = $DB->get_manager();
+
+    // Additional cleanup code can go here
+
+    return true;
+}

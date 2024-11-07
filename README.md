@@ -1,29 +1,24 @@
-# Moodle plugin template
+# Moodle Plugin Template
 
-Use this template as a starting point for any Moodle plugin that you want other people to install.
+Use this template as a starting point for developing Moodle plugins.
 
-<mark>STATUS: This is a work in progress and supports a discussion of best practices.</mark>
+**STATUS:** This is a work-in-progress, supporting discussions on best practices.
 
-![File listing](screenshots/file-listing.png)
+![File listing](docs/images/file-listing.png)
 
-## Features
+## Key features
 
-Your new Moodle plugin will immediately have working code, a build system and implement these best practices which all modules should use:
+This template provides a structured, best-practice-compliant foundation for developing Moodle plugins, including:
 
-- [x] Playground and install instructions for people using your plugin
-- [x] Automated tests that run on GitHub Actions
-- [x] Localization for all strings
-- [x] Automated code style checks
-- [ ] Unit tests for all classes
-- [ ] Behat tests for all features
-- [ ] Automated code coverage checks
-- [ ] Automated static analysis checks
-- [ ] Logging for all actions
-- [ ] Backup and restore support
+- 📝 Installation instructions for users
+- 🔧 Build system and CI/CD setup using GitHub Actions
+- 🌍 Localization for all strings
+- ✅ Automated code style checks
+- 🚀 Optional: Unit tests, Behat tests, static analysis, logging, and backup support
 
-This repository is a fully-functioning plugin demonstrating the best practices by implementing toy functionality with many features your own plugin might need. You can rip these features out or modify them. But if you need these kinds of features, there are implemented here as an example, including references to best practices.
+This repository offers a functional example of a Moodle plugin, with features like:
 
-- [ ] **Database initialization and upgrade** scripts
+- [x] **Database initialization and upgrade** scripts
 - [ ] **Dashboard Context block** (`CONTEXT_USER`) to display content on student dashboards ("My home")
 - [ ] **Course content block** (`CONTEXT_COURSE`) to display content on course pages
 - [ ] **Activity block** (`CONTEXT_MODULE`) to display content on activity pages
@@ -32,61 +27,57 @@ This repository is a fully-functioning plugin demonstrating the best practices b
 - [ ] **Scheduled task** to run background processing
 - [ ] **Custom JavaScript** for the user interface, which is built using (AMD??)
 
-## Index of best practices to review
+You can use these features as they are, modify them, or remove what you don’t need.
 
-Here are further best practices to review which may help when we are implementing the remaining checkboxes above.
+## Best practices and resources
 
-- how to compile JS https://moodledev.io/general/development/tools/nodejs
-- how to compile AMD
-  -  https://github.com/h5p/moodle-mod_hvp
-  -  https://github.com/danmarsden/moodle-mod_attendance/tree/MOODLE_404_STABLE/amd
-- install notes https://moodledev.io/general/development/tools/nodejs
-- build strategy https://github.com/marcusgreen/moodle-qbank_bulktags/blob/main/.github/workflows/moodle-ci.yml
-  - https://moodlehq.github.io/moodle-plugin-ci/
-- best practices
-  - https://github.com/danmarsden/moodle-mod_attendance
-  - Use this template as a starting point for any Moodle plugin that you want other people to include in their projects.
+Follow these best practices to enhance and maintain your plugin:
 
-MARKETING:
+- **JavaScript Compilation:** [Moodle Node.js Guide](https://moodledev.io/general/development/tools/nodejs)
+- **AMD Compilation:** Examples:
+    - [h5p plugin](https://github.com/h5p/moodle-mod_hvp)
+    - [attendance plugin](https://github.com/danmarsden/moodle-mod_attendance/tree/MOODLE_404_STABLE/amd)
+- **CI Setup:** [Moodle CI Guide](https://moodlehq.github.io/moodle-plugin-ci/)
+- **General Examples:** [attendance plugin](https://github.com/danmarsden/moodle-mod_attendance)
 
-- Post to https://moodle.org/mod/forum/discuss.php?d=462107#p1855356
-- Post to https://github.com/sebsoftnl/moodle-block_coupon/issues/24
-- Post to new Moodle forum thread
+## Making your own plugin
 
+1. **Fork this repository** and rename it according to Moodle conventions:
+    - Format: `moodle-<type>_<pluginname>` (e.g., `moodle-local_example`)
+    - `<type>` should match Moodle’s [plugin types](https://moodledev.io/docs/apis/plugintypes).
 
+2. **Customize the README**: Replace content below this line to describe your plugin.
 
-
-## Make your own plugin
-
-Here is what you need to do to make your own Moodle plugin:
-
-- [ ] Fork this repository:
-  - The name of your repository must follow the format `moodle-<type>_<pluginname>`:
-    - `<type>` is one of the "component names" listed in the [Moodle plugin types documentation](https://moodledev.io/docs/apis/plugintypes)
-    - `<pluginname>` begins with a lowercase letter; followed by lowercase letters, numbers and underscores (but no consecutive underscores); and ends with a lowercase letter or number (as per [requirements](https://moodledev.io/docs/apis/plugintypes))
-    - We do not see documentation that this exact repository name is required, nor [consistent usage in the wild](https://github.com/search?q=path%3A%2Fdb%2Finstall.xml&type=code&ref=advsearch), nevertheless we assert this is best practice.
-- [ ] Edit the README contents below, starting at "High Five plugin" to describe your product instead of the High Five product.
-- [ ] Delete this line from your README and everything above it. Publish your repository. Release version 1.0.0!
-
----
-
----
+3. **Publish and Release**: Remove this line and above, then publish your repository as version 1.0.0!
 
 ---
 
 # High Five plugin
 
-Allow your students to high five! Make new friends and engage, engage, engage!
+Enable students to "high five" each other! Enhance engagement and community.
 
-Supported Moodle versions: [![ci](https://github.com/fulldecent/moodle-local_plugin_template/actions/workflows/ci.yml/badge.svg)](https://github.com/fulldecent/moodle-local_plugin_template/actions/workflows/ci.yml)
+Supported Moodle versions: ![CI status](https://github.com/fulldecent/moodle-local_plugin_template/actions/workflows/ci.yml/badge.svg)
 
 ## Features
 
-Here's what you get with *High Five*:
+- 🎉 High Five page at `/local/high_five/`
+  <img src="docs/images/greeting.png" width=400>
 
-* :raised_hand_with_fingers_splayed: A high five page available on your site at /local/high_five/
+## Quick start with playground
 
-  <img src="screenshots/screenshot-1.jpg" width=400>
+Set up a Moodle environment in minutes for testing your plugin locally:
+
+### Steps:
+
+1. **Install Docker**:
+    - Recommended for Mac: [OrbStack](https://orbstack.dev/)
+    - Windows/Linux: (add recommended option)
+
+2. **Prepare Moodle Directory**:
+   ```sh
+   cd ~/Developer
+   mkdir moodle-playground && cd moodle-playground
+
 
 ## Quick start playground
 

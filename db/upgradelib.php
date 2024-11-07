@@ -1,5 +1,5 @@
 <?php
-// This file is part of the High Five plugin for Moodle
+// This file is part of Moodle - https://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -12,22 +12,30 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * Version information
+ * Upgrade library for the local_high_five plugin.
  *
- * @package    local_high_five
- * @copyright  2024 William Entriken <github.com@phor.net>
- * @license    http://opensource.org/licenses/MIT MIT License
+ * @package     local_high_five
+ * @copyright   2024 William Entriken <your@mail.com>
+ * @license     http://opensource.org/licenses/MIT MIT License
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'local_high_five';
-$plugin->release = '1.0';
-$plugin->version = 2024100900;
-$plugin->requircdes = 2024041200;
-$plugin->maturity = MATURITY_STABLE;
-$plugin->supported = [405, 405];
-$plugin->cron = 0;
+/**
+ * Execute local_high_five upgrade from the given old version.
+ *
+ * @param int $oldversion
+ * @return bool
+ */
+function xmldb_local_high_five_upgrade($oldversion) {
+    global $DB;
+
+    $dbman = $DB->get_manager();
+
+    // Upgrade logic here
+
+    return true;
+}
