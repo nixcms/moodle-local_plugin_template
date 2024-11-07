@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database xmlns="http://www.moodle.org/xmlDB">
-    <table name="mdl_local_high_five">
+    <table name="prefix_local_high_five">
         <fields>
             <field name="id" type="int" length="10" sequence="true" notnull="true"/>
             <field name="name" type="varchar" length="255" notnull="true"/>
