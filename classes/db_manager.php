@@ -13,6 +13,16 @@
 //
 // You should have received a copy of the GNU General Public License along with Moodle; if not, see <https://www.gnu.org/licenses/>.
 
+/**
+ * Class db_manager
+ *
+ * Manages database interactions for the High Five plugin.
+ *
+ * @package     local_high_five
+ * @copyright   2024 William Entriken <github.com@phor.net>
+ * @license     http://opensource.org/licenses/MIT MIT License
+ */
+
 namespace local_high_five;
 
 use moodle_database;
