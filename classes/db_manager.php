@@ -14,14 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle; if not, see <https://www.gnu.org/licenses/>.
 
-/**
- * Class db_manager for managing database interactions for the High Five plugin.
- *
- * @package     local_high_five
- * @copyright   2024 William Entriken <github.com@phor.net>
- * @license     http://opensource.org/licenses/MIT MIT License
- */
-
 namespace local_high_five;
 
 use moodle_database;
@@ -32,8 +24,7 @@ use dml_exception;  // Import dml_exception to handle potential exceptions
  *
  * Manages database interactions for the High Five plugin.
  */
-class db_manager
-{
+class db_manager {
     /**
      * @var moodle_database Database connection instance.
      */
@@ -46,8 +37,7 @@ class db_manager
      *
      * @throws dml_exception If the database connection cannot be established.
      */
-    public function __construct()
-    {
+    public function __construct() {
         global $DB;
         $this->db = $DB;
     }
