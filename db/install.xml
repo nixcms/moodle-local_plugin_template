@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMLDB PATH="local/high_five/db">
-    <TABLE NAME="local_high_five_table">
-        <FIELDS>
-            <FIELD NAME="id" TYPE="int" LENGTH="10" SEQUENCE="true" NOTNULL="true"/>
-            <FIELD NAME="name" TYPE="varchar" LENGTH="255" NOTNULL="true"/>
-        </FIELDS>
-        <KEYS>
-            <KEY NAME="primary" TYPE="PRIMARY" FIELDS="id"/>
-        </KEYS>
-    </TABLE>
-</XMLDB>
+<database xmlns="http://www.moodle.org/xmlDB">
+    <table name="mdl_local_high_five">
+        <fields>
+            <field name="id" type="int" length="10" sequence="true" notnull="true"/>
+            <field name="name" type="varchar" length="255" notnull="true"/>
+        </fields>
+        <keys>
+            <key name="primary" type="primary" fields="id"/>
+        </keys>
+    </table>
+</database>
