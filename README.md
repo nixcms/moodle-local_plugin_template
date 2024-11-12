@@ -60,95 +60,88 @@ Supported Moodle versions: ![CI status](https://github.com/fulldecent/moodle-loc
 
 ## Features
 
-- 🎉 High Five page at `/local/high_five/`
+* :raised_hand_with_fingers_splayed: A high five page available on your site at /local/high_five/
+
   <img src="docs/images/greeting.png" width=400>
-
-## Quick start with playground
-
-Set up a Moodle environment in minutes for testing your plugin locally:
-
-### Steps:
-
-1. **Install Docker**:
-    - Recommended for Mac: [OrbStack](https://orbstack.dev/)
-    - Windows/Linux: (add recommended option)
-
-2. **Prepare Moodle Directory**:
-   ```sh
-   cd ~/Developer
-   mkdir moodle-playground && cd moodle-playground
-
 
 ## Quick start playground
 
-:runner: Run a Moodle playground site with *High Five* on your own computer in under 5 minutes! Zero programming or Moodle experience required.
+🚀 Run a Moodle Playground with High Five plugin using Docker and Portainer in 5 minutes! Open-source and OS-independent.  
+🔧 No programming or Moodle experience needed.
 
-1. Install a Docker system:
+### Step 1: set up Docker
 
-   1. On macOS we currently recommend [OrbStack](https://orbstack.dev/). This is the only software which can install Moodle in under 5 minutes. We would prefer if an open source product can provide this experince, but none such exists. See [references](#references) below if you may prefer another option.
-   2. On Windows (TODO: add open source recommendation)
-   3. On Linux (TODO: add open source recommendation)
+Ensure Docker and Docker Compose are installed. Run these commands to check:
 
-2. Create a Moodle testing folder. You will use this to test this plugin, but you could also mix in other plugins onto the same system if you like.
+```sh
+docker --version
+docker-compose --version
+```
 
-   ```sh
-   cd ~/Developer
-   mkdir moodle-playground && cd moodle-playground
-   ```
+If not installed, follow [Docker’s installation guide](https://docs.docker.com/engine/install/).
 
-3. Install the latest version of Moodle:
+### Step 2: Download Bitnami's Docker Compose file for Moodle
+See the [Bitnami Moodle documentation](https://github.com/bitnami/containers/blob/main/bitnami/moodle/README.md#why-use-bitnami-images) for other setup options.
+This config sets up Moodle with MariaDB ⚠️ only for development environments.
 
-   ```sh
-   # Visit https://moodledev.io/general/releases to find the latest release, like X.Y.
-   
-   export BRANCH=MOODLE_X0Y_STABLE # update X and Y here to match the latest release version
-   git clone --depth=1 --branch $BRANCH git://git.moodle.org/moodle.git
-   ```
+```sh
+curl -sSL https://raw.githubusercontent.com/bitnami/containers/main/bitnami/moodle/docker-compose.yml > docker-compose.yml
+```
 
-   *:information_source: If you see the error "fatal: Remote branch MOODLE_X0Y_STABLE not found in upstream origin", please reread instruction in the code comment and try again.*
+### Step 3: start Moodle with Docker Compose
 
-4. Install this plugin into your Moodle playground:
+```sh
+docker-compose up -d
+```
+Moodle and MariaDB containers should be accessible on http://localhost by default.
 
-   ```sh
-   git clone https://github.com/fulldecent/moodle-local_plugin_template.git moodle/local/high_five
-   ```
+Use the default login credentials (⚠️ only for development environments) to access in Moodle admin dashboard:
 
-5. Get and run Moodle Docker container (instructions adapted from [moodle-docker instructions](https://github.com/moodlehq/moodle-docker)):
+Username: user  
+Password: bitnami
 
-   ```sh
-   git clone https://github.com/moodlehq/moodle-docker.git
-   cd moodle-docker # You are now at ~/Developer/moodle-playground/moodle-docker
-   
-   export MOODLE_DOCKER_WWWROOT=../moodle
-   export MOODLE_DOCKER_DB=pgsql
-   bin/moodle-docker-compose up -d
-   bin/moodle-docker-wait-for-db
-   
-   cp config.docker-template.php $MOODLE_DOCKER_WWWROOT/config.php
-   bin/moodle-docker-compose exec webserver php admin/cli/install_database.php --agree-license --fullname="Docker moodle" --shortname="docker_moodle" --summary="Docker moodle site" --adminpass="test" --adminemail="admin@example.com" --adminuser='admin'
-   ```
+### Step 4 (Optional): install and run Portainer
 
-   *:information_source: If you see the error "Database tables already present; CLI installation cannot continue", please follow the "teardown" instructions below and then try again.*
+[Portainer](https://github.com/portainer/portainer) simplifies managing Docker containers with an easy-to-use UI.
 
-   *:information_source: If you see the error "!!! Site is being upgraded, please retry later. !!!", and "Error code: upgraderunning…", please ignore the error and proceed.*
+```sh
+docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer-ce
+```
 
-6. :sun_with_face: Now play with your server at https://localhost:8000
+After this,
 
-   1. Click the top-right to login.
-   2. Your username is `admin` and your password is `test`.
+1. Go to http://localhost:9000
+2. Set up a user account
+3. Manage all containers, including Moodle and MariaDB
 
-   *:information_source: If you see a bunch of stuff and "Update Moodle database now", then click that button and wait. On a M1 Mac with 8GB ram, we saw this take 5 minutes for the page to finish loading.*
+<img src="docs/images/portainer.png" width=400>
 
-7. To completely kill your playground so that next time you will start with a blank slate:
+### Step 5: install High Five into your Moodle playground
 
-   ```sh
-   bin/moodle-docker-compose down --volumes --remove-orphans
-   colima stop
-   ```
+1. Clone or download the `moodle-local_plugin_template` repository:
 
-If you have any further questions about the playground setup, customizing it or other error messages, please documentation at https://github.com/moodlehq/moodle-docker and contact that team.
+```sh
+git clone https://github.com/fulldecent/moodle-local_plugin_template.git
+```
 
-## Install
+2. Get the Moodle container ID:
+
+```sh
+docker ps
+```
+3. Copy the plugin into the Moodle container volume:
+
+```sh
+docker cp moodle-local_plugin_template/ [moodle_container_name_or_id]:/bitnami/moodle/local/high_five
+```
+
+4. Visit the Moodle admin dashboard to upgrade the database and complete the plugin installation.  
+
+If it doesn’t start automatically, go to https://<your-moodle-url>/admin/index.php.
+
+❓ For questions about setup, customization, or errors, check the [documentation](https://github.com/bitnami/containers/blob/main/bitnami/moodle/README.md) and contact the team.
+
+## Install 
 
 To install High Five on your quality assurance server or your production server, do the same thing as the plaground example above:
 
