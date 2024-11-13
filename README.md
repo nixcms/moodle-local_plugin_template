@@ -35,16 +35,16 @@ Follow these best practices to enhance and maintain your plugin:
 
 - **JavaScript Compilation:** [Moodle Node.js Guide](https://moodledev.io/general/development/tools/nodejs)
 - **AMD Compilation:** Examples:
-    - [h5p plugin](https://github.com/h5p/moodle-mod_hvp)
-    - [attendance plugin](https://github.com/danmarsden/moodle-mod_attendance/tree/MOODLE_404_STABLE/amd)
+   - [h5p plugin](https://github.com/h5p/moodle-mod_hvp)
+   - [attendance plugin](https://github.com/danmarsden/moodle-mod_attendance/tree/MOODLE_404_STABLE/amd)
 - **CI Setup:** [Moodle CI Guide](https://moodlehq.github.io/moodle-plugin-ci/)
 - **General Examples:** [attendance plugin](https://github.com/danmarsden/moodle-mod_attendance)
 
 ## Making your own plugin
 
 1. **Fork this repository** and rename it according to Moodle conventions:
-    - Format: `moodle-<type>_<pluginname>` (e.g., `moodle-local_example`)
-    - `<type>` should match Moodle’s [plugin types](https://moodledev.io/docs/apis/plugintypes).
+   - Format: `moodle-<type>_<pluginname>` (e.g., `moodle-local_example`)
+   - `<type>` should match Moodle’s [plugin types](https://moodledev.io/docs/apis/plugintypes).
 
 2. **Customize the README**: Replace content below this line to describe your plugin.
 
@@ -70,8 +70,8 @@ Set up a Moodle environment in minutes for testing your plugin locally:
 ### Steps:
 
 1. **Install Docker**:
-    - Recommended for Mac: [OrbStack](https://orbstack.dev/)
-    - Windows/Linux: (add recommended option)
+   - Recommended for Mac: [OrbStack](https://orbstack.dev/)
+   - Windows/Linux: (add recommended option)
 
 2. **Prepare Moodle Directory**:
    ```sh
@@ -85,9 +85,9 @@ Set up a Moodle environment in minutes for testing your plugin locally:
 
 1. Install a Docker system:
 
-    1. On macOS we currently recommend [OrbStack](https://orbstack.dev/). This is the only software which can install Moodle in under 5 minutes. We would prefer if an open source product can provide this experince, but none such exists. See [references](#references) below if you may prefer another option.
-    2. On Windows (TODO: add open source recommendation)
-    3. On Linux (TODO: add open source recommendation)
+   1. On macOS we currently recommend [OrbStack](https://orbstack.dev/). This is the only software which can install Moodle in under 5 minutes. We would prefer if an open source product can provide this experince, but none such exists. See [references](#references) below if you may prefer another option.
+   2. On Windows (TODO: add open source recommendation)
+   3. On Linux (TODO: add open source recommendation)
 
 2. Create a Moodle testing folder. You will use this to test this plugin, but you could also mix in other plugins onto the same system if you like.
 
@@ -134,8 +134,8 @@ Set up a Moodle environment in minutes for testing your plugin locally:
 
 6. :sun_with_face: Now play with your server at https://localhost:8000
 
-    1. Click the top-right to login.
-    2. Your username is `admin` and your password is `test`.
+   1. Click the top-right to login.
+   2. Your username is `admin` and your password is `test`.
 
    *:information_source: If you see a bunch of stuff and "Update Moodle database now", then click that button and wait. On a M1 Mac with 8GB ram, we saw this take 5 minutes for the page to finish loading.*
 
@@ -166,9 +166,9 @@ Please send PRs to our [main branch](https://github.com/fulldecent/moodle-local_
 
 1. This module is built based on [best practices documented in moodle-local_plugin_template](https://github.com/fulldecent/moodle-local_plugin_template).
 2. Setting up Docker
-    1. We would prefer an open-source-licensed Docker implementation that runs at native speed on Mac, Linux and Windows. For Mac, you may prefer to [install Colima](https://github.com/abiosoft/colima?tab=readme-ov-file#installation) which is open source but about 5x slower than the OrbStack recommended above.
+   1. We would prefer an open-source-licensed Docker implementation that runs at native speed on Mac, Linux and Windows. For Mac, you may prefer to [install Colima](https://github.com/abiosoft/colima?tab=readme-ov-file#installation) which is open source but about 5x slower than the OrbStack recommended above.
 3. Setting up playground
-    1. If you require a few courses and users to test your plugin, you may want to look at the [generator tool](https://moodledev.io/general/development/tools/generator).
+   1. If you require a few courses and users to test your plugin, you may want to look at the [generator tool](https://moodledev.io/general/development/tools/generator).
 4. Continuous integration
-    1. This plugin uses [the Moodle CI suite recommended by Catalyst](https://github.com/catalyst/catalyst-moodle-workflows)
-    2. Perhaps we would prefer the CI suite provided by Moodle, but their approach [does not allow you to set it once and forget it](https://github.com/moodlehq/moodle-plugin-ci/issues/323)
+   1. This plugin uses [the Moodle CI suite recommended by Catalyst](https://github.com/catalyst/catalyst-moodle-workflows)
+   2. Perhaps we would prefer the CI suite provided by Moodle, but their approach [does not allow you to set it once and forget it](https://github.com/moodlehq/moodle-plugin-ci/issues/323)
