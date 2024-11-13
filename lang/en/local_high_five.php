@@ -17,9 +17,10 @@
 /**
  * English strings
  *
- * @package    local_high_five
- * @copyright  2024 William Entriken <github.com@phor.net>
- * @license    http://opensource.org/licenses/MIT MIT License
+ * @package     local_high_five
+ * @category    local
+ * @license     http://opensource.org/licenses/MIT MIT License
+ * @copyright   2024 William Entriken <github.com@phor.net>
  */
 
 // General Strings.
