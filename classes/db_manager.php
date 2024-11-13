@@ -12,7 +12,7 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 namespace local_high_five;
 
@@ -25,7 +25,6 @@ use dml_exception;
  * Provides methods for interacting with the 'local_high_five' table in Moodle.
  *
  * @package     local_high_five
- * @category    local
  * @license     http://opensource.org/licenses/MIT MIT License
  * @copyright   2024 William Entriken <github.com@phor.net>
  */

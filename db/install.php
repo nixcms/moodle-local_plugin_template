@@ -8,22 +8,19 @@
 //
 // Moodle is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle. If not, see <https://www.gnu.org/licenses/>.
-
-defined('MOODLE_INTERNAL') || die();
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
  * Installation code for the local_high_five plugin.
  *
- * This function is executed during the installation of the plugin, setting up
- * the initial database structure for local_high_five if it does not already exist.
+ * This file contains the installation logic for the local_high_five plugin.
+ * It checks if the `local_high_five` table exists and creates it if it does not.
  *
  * @package     local_high_five
- * @category    local
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @copyright   2024 William Entriken
  */
@@ -39,10 +36,10 @@ defined('MOODLE_INTERNAL') || die();
 function xmldb_local_high_five_install() {
     global $DB;
 
-    // Define the table
+    // Define the table.
     $table = new xmldb_table('local_high_five');
 
-    // Create table if it doesn't exist
+    // Create table if it doesn't exist.
     if (!$DB->get_manager()->table_exists($table)) {
         $DB->get_manager()->create_table($table);
     }

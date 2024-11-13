@@ -8,22 +8,19 @@
 //
 // Moodle is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle. If not, see <https://www.gnu.org/licenses/>.
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
  * Upgrade script for the local_high_five plugin.
  *
  * @package     local_high_five
- * @category    local
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @copyright   2024 William Entriken <github.com@phor.net>
  */
-
-defined('MOODLE_INTERNAL') || die();
 
 /**
  * Handles the plugin upgrade process for local_high_five.
