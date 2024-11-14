@@ -1,5 +1,5 @@
 <?php
-// This file is part of Moodle - https://moodle.org/
+// This file is part of the High Five plugin for Moodle
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -12,17 +12,21 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle; if not, see <https://www.gnu.org/licenses/>.
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 namespace local_high_five;
 
 use moodle_database;
-use dml_exception;  // Import dml_exception to handle potential exceptions
+use dml_exception;
 
 /**
  * Class db_manager
  *
- * Manages database interactions for the High Five plugin.
+ * Provides methods for interacting with the 'local_high_five' table in Moodle.
+ *
+ * @package     local_high_five
+ * @license     http://opensource.org/licenses/MIT MIT License
+ * @copyright   2024 William Entriken <github.com@phor.net>
  */
 class db_manager {
     /**
@@ -31,11 +35,9 @@ class db_manager {
     protected $db;
 
     /**
-     * db_manager constructor.
+     * Constructor to initialize the database connection.
      *
-     * Initializes the database connection.
-     *
-     * @throws dml_exception If the database connection cannot be established.
+     * @throws dml_exception If there is a problem with the database connection.
      */
     public function __construct() {
         global $DB;
@@ -43,25 +45,33 @@ class db_manager {
     }
 
     /**
-     * Inserts a new record into the high_five_table.
+     * Inserts a new record into the high_five table.
      *
      * @param string $name The name of the user for the high five.
-     * @return int The id of the newly inserted record.
+     * @return int|false The id of the newly inserted record, or false on failure.
      */
     public function insert_data($name) {
         $record = new \stdClass();
         $record->name = $name;
 
-        return $this->db->insert_record('local_high_five', $record);
+        try {
+            return $this->db->insert_record('local_high_five', $record);
+        } catch (dml_exception $e) {
+            return false;
+        }
     }
 
     /**
-     * Retrieves all records from the high_five_table.
+     * Retrieves all records from the high_five table.
      *
-     * @return array Array of records from the high_five_table.
+     * @return array|false Array of records or false on failure.
      */
     public function get_all_data() {
-        return $this->db->get_records('local_high_five');
+        try {
+            return $this->db->get_records('local_high_five');
+        } catch (dml_exception $e) {
+            return false;
+        }
     }
 
     /**
@@ -71,11 +81,15 @@ class db_manager {
      * @return stdClass|false The record object or false if not found.
      */
     public function get_data_by_id($id) {
-        return $this->db->get_record('local_high_five', ['id' => $id]);
+        try {
+            return $this->db->get_record('local_high_five', ['id' => $id]);
+        } catch (dml_exception $e) {
+            return false;
+        }
     }
 
     /**
-     * Updates an existing record in the high_five_table.
+     * Updates an existing record in the high_five table.
      *
      * @param int $id The id of the record to update.
      * @param string $name The new name value for the record.
@@ -91,12 +105,16 @@ class db_manager {
     }
 
     /**
-     * Deletes a record from the high_five_table.
+     * Deletes a record from the high_five table.
      *
      * @param int $id The id of the record to delete.
      * @return bool True on success, false on failure.
      */
     public function delete_data($id) {
-        return $this->db->delete_records('local_high_five', ['id' => $id]);
+        try {
+            return $this->db->delete_records('local_high_five', ['id' => $id]);
+        } catch (dml_exception $e) {
+            return false;
+        }
     }
 }

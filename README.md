@@ -4,7 +4,7 @@ Use this template as a starting point for developing Moodle plugins.
 
 **STATUS:** This is a work-in-progress, supporting discussions on best practices.
 
-![File listing](docs/images/file-listing.png)
+![File listing](docs/images/project-tree.png)
 
 ## Key features
 
@@ -22,10 +22,11 @@ This repository offers a functional example of a Moodle plugin, with features li
 - [ ] **Dashboard Context block** (`CONTEXT_USER`) to display content on student dashboards ("My home")
 - [ ] **Course content block** (`CONTEXT_COURSE`) to display content on course pages
 - [ ] **Activity block** (`CONTEXT_MODULE`) to display content on activity pages
-- [ ] **Settings page** to configure the plugin using the standard Moodle admin settings interface
+- [x] **Settings page** to configure the plugin using the standard Moodle admin settings interface
 - [ ] **Admin page** to access functionality of this plugin that only administrators should see
 - [ ] **Scheduled task** to run background processing
 - [ ] **Custom JavaScript** for the user interface, which is built using (AMD??)
+- [x] **Unit test example** to ensure the plugin works as expected in the Catalyst CI system.
 
 You can use these features as they are, modify them, or remove what you don’t need.
 
@@ -35,16 +36,16 @@ Follow these best practices to enhance and maintain your plugin:
 
 - **JavaScript Compilation:** [Moodle Node.js Guide](https://moodledev.io/general/development/tools/nodejs)
 - **AMD Compilation:** Examples:
-    - [h5p plugin](https://github.com/h5p/moodle-mod_hvp)
-    - [attendance plugin](https://github.com/danmarsden/moodle-mod_attendance/tree/MOODLE_404_STABLE/amd)
+   - [h5p plugin](https://github.com/h5p/moodle-mod_hvp)
+   - [attendance plugin](https://github.com/danmarsden/moodle-mod_attendance/tree/MOODLE_404_STABLE/amd)
 - **CI Setup:** [Moodle CI Guide](https://moodlehq.github.io/moodle-plugin-ci/)
 - **General Examples:** [attendance plugin](https://github.com/danmarsden/moodle-mod_attendance)
 
 ## Making your own plugin
 
 1. **Fork this repository** and rename it according to Moodle conventions:
-    - Format: `moodle-<type>_<pluginname>` (e.g., `moodle-local_example`)
-    - `<type>` should match Moodle’s [plugin types](https://moodledev.io/docs/apis/plugintypes).
+   - Format: `moodle-<type>_<pluginname>` (e.g., `moodle-local_example`)
+   - `<type>` should match Moodle’s [plugin types](https://moodledev.io/docs/apis/plugintypes).
 
 2. **Customize the README**: Replace content below this line to describe your plugin.
 
@@ -60,8 +61,18 @@ Supported Moodle versions: ![CI status](https://github.com/fulldecent/moodle-loc
 
 ## Features
 
-- 🎉 High Five page at `/local/high_five/`
-  <img src="docs/images/greeting.png" width=400>
+### 🎉 High Five page at `/local/high_five/`
+  
+
+<img src="docs/images/greeting.png" width=400>  
+
+
+### ⚙️ **Settings page** to configure the plugin behavior.
+
+- The **High Five** plugin includes a settings page for enabling or disabling the High Five feature.
+- Access the settings at: `Site administration > Plugins > Local plugins > High Five`.
+
+<img src="docs/images/settings.png" width=400>
 
 ## Quick start with playground
 
@@ -70,14 +81,13 @@ Set up a Moodle environment in minutes for testing your plugin locally:
 ### Steps:
 
 1. **Install Docker**:
-    - Recommended for Mac: [OrbStack](https://orbstack.dev/)
-    - Windows/Linux: (add recommended option)
+   - Recommended for Mac: [OrbStack](https://orbstack.dev/)
+   - Windows/Linux: (add recommended option)
 
 2. **Prepare Moodle Directory**:
    ```sh
    cd ~/Developer
    mkdir moodle-playground && cd moodle-playground
-
 
 ## Quick start playground
 

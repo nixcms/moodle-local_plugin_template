@@ -1,5 +1,5 @@
 <?php
-// This file is part of Moodle - https://moodle.org/
+// This file is part of the High Five plugin for Moodle
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -15,39 +15,38 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * Plugin upgrade steps are defined here.
+ * Upgrade script for the local_high_five plugin.
  *
  * @package     local_high_five
- * @copyright   2024 William Entriken <your@mail.com>
- * @license     http://opensource.org/licenses/MIT MIT License
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright   2024 William Entriken <github.com@phor.net>
  */
 
-defined('MOODLE_INTERNAL') || die();
-
-require_once(__DIR__.'/upgradelib.php');
-
 /**
- * Execute local_high_five upgrade from the given old version.
+ * Handles the plugin upgrade process for local_high_five.
  *
- * @param int $oldversion
- * @return bool
+ * This function is called when upgrading the plugin to a new version.
+ *
+ * @param int $oldversion The version the plugin is upgrading from.
+ * @return bool True on successful upgrade.
+ * @throws ddl_exception If there is an issue with the database structure change.
  */
 function xmldb_local_high_five_upgrade($oldversion) {
     global $DB;
 
-    $dbman = $DB->get_manager();
+    if ($oldversion < 2024111301) {
+        // Define table local_high_five if not already defined.
+        $table = new xmldb_table('local_high_five');
 
-    // Check if the plugin is being upgraded to a newer version.
-    if ($oldversion < 2024100900) { // Old version check
-        // Example: Add a table or perform a schema update
-        if (!$dbman->table_exists('local_high_five')) {
-            $table = new xmldb_table('local_high_five');
-            // Define fields and indexes for the table here
-            $dbman->create_table($table);
+        // Conditionally add a new field to the table.
+        if (!$DB->get_manager()->field_exists($table, 'description')) {
+            $field = new xmldb_field('description', XMLDB_TYPE_TEXT, null, null, null, null, null, 'name');
+            $DB->get_manager()->add_field($table, $field);
         }
-        upgrade_plugin_savepoint(true, 2024100900, 'local', 'high_five');
+
+        // Save the upgrade point.
+        upgrade_plugin_savepoint(true, 2024111301, 'local', 'high_five');
     }
 
-    // Add additional checks for future versions as needed.
     return true;
 }

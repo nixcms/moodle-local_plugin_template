@@ -12,7 +12,7 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * High Five plugin main page display
@@ -22,19 +22,18 @@
  * @copyright   2024 William Entriken
  */
 
-require_once('../../config.php');
-require_login();
+defined('MOODLE_INTERNAL') || die;
 
-// Page setup.
-$pageurl = new moodle_url('/local/high_five/index.php');
-$PAGE->set_url($pageurl);
-$PAGE->set_context(context_system::instance());
-$PAGE->set_title(get_string('pluginname', 'local_high_five'));
+if ($hassiteconfig) { // Ensure the user has site admin permissions.
+    $settings = new admin_settingpage('local_high_five', get_string('pluginname', 'local_high_five'));
 
-// Display content.
-$sender = 'Will'; // For localization, could be sourced from user data in a real scenario.
-$highfiveheading = get_string('latesthighfive', 'local_high_five', $sender);
-$PAGE->set_heading($highfiveheading);
+    // Example setting: Enable/Disable feature.
+    $settings->add(new admin_setting_configcheckbox(
+        'local_high_five/enable_feature', // Setting name.
+        get_string('enable_feature', 'local_high_five'), // Title of the setting.
+        get_string('enable_feature_desc', 'local_high_five'), // Description of the setting.
+        0 // Default is disabled (set to 1 to enable by default).
+    ));
 
-echo $OUTPUT->header();
-echo $OUTPUT->footer();
+    $ADMIN->add('localplugins', $settings);
+}

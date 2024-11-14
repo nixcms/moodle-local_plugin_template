@@ -1,12 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database xmlns="http://www.moodle.org/xmlDB">
-    <table name="mdl_local_high_five">
-        <fields>
-            <field name="id" type="int" length="10" sequence="true" notnull="true"/>
-            <field name="name" type="varchar" length="255" notnull="true"/>
-        </fields>
-        <keys>
-            <key name="primary" type="primary" fields="id"/>
-        </keys>
-    </table>
-</database>
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/high_five/db" VERSION="2024111300" COMMENT="XMLDB file for Moodle local_high_five plugin"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
+    <TABLES>
+        <TABLE NAME="local_high_five" COMMENT="Table for local_high_five plugin data">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" AUTO="true"/>
+                <FIELD NAME="name" TYPE="text" LENGTH="255" NOTNULL="true"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+    </TABLES>
+</XMLDB>
