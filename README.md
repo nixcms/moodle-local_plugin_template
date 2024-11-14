@@ -4,7 +4,7 @@ Use this template as a starting point for developing Moodle plugins.
 
 **STATUS:** This is a work-in-progress, supporting discussions on best practices.
 
-![File listing](docs/images/file-listing.png)
+![File listing](docs/images/project-tree.png)
 
 ## Key features
 
@@ -22,10 +22,11 @@ This repository offers a functional example of a Moodle plugin, with features li
 - [ ] **Dashboard Context block** (`CONTEXT_USER`) to display content on student dashboards ("My home")
 - [ ] **Course content block** (`CONTEXT_COURSE`) to display content on course pages
 - [ ] **Activity block** (`CONTEXT_MODULE`) to display content on activity pages
-- [ ] **Settings page** to configure the plugin using the standard Moodle admin settings interface
+- [x] **Settings page** to configure the plugin using the standard Moodle admin settings interface
 - [ ] **Admin page** to access functionality of this plugin that only administrators should see
 - [ ] **Scheduled task** to run background processing
 - [ ] **Custom JavaScript** for the user interface, which is built using (AMD??)
+- [x] **Unit test example** to ensure the plugin works as expected in the Catalyst CI system.
 
 You can use these features as they are, modify them, or remove what you don’t need.
 
@@ -60,8 +61,18 @@ Supported Moodle versions: ![CI status](https://github.com/fulldecent/moodle-loc
 
 ## Features
 
-- 🎉 High Five page at `/local/high_five/`
-  <img src="docs/images/greeting.png" width=400>
+### 🎉 High Five page at `/local/high_five/`
+  
+
+<img src="docs/images/greeting.png" width=400>  
+
+
+### ⚙️ **Settings page** to configure the plugin behavior.
+
+- The **High Five** plugin includes a settings page for enabling or disabling the High Five feature.
+- Access the settings at: `Site administration > Plugins > Local plugins > High Five`.
+
+<img src="docs/images/settings.png" width=400>
 
 ## Quick start with playground
 
@@ -77,7 +88,6 @@ Set up a Moodle environment in minutes for testing your plugin locally:
    ```sh
    cd ~/Developer
    mkdir moodle-playground && cd moodle-playground
-
 
 ## Quick start playground
 

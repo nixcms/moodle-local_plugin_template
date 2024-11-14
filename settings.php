@@ -22,11 +22,18 @@
  * @copyright   2024 William Entriken
  */
 
-$string['pluginname'] = 'High Five';
-$string['latesthighfive'] = 'Latest high five is from {$a}.';
-$string['highfive:view'] = 'View High Five';
-$string['highfive:manage'] = 'Manage High Five settings';
+defined('MOODLE_INTERNAL') || die;
 
-// Example Setting Strings
-$string['enable_feature'] = 'Enable High Five Feature'; // Title for the setting.
-$string['enable_feature_desc'] = 'Check this box to enable the High Five feature on the site.'; // Description for the setting.
+if ($hassiteconfig) { // Ensure the user has site admin permissions.
+    $settings = new admin_settingpage('local_high_five', get_string('pluginname', 'local_high_five'));
+
+    // Example setting: Enable/Disable feature.
+    $settings->add(new admin_setting_configcheckbox(
+        'local_high_five/enable_feature', // Setting name.
+        get_string('enable_feature', 'local_high_five'), // Title of the setting.
+        get_string('enable_feature_desc', 'local_high_five'), // Description of the setting.
+        0 // Default is disabled (set to 1 to enable by default).
+    ));
+
+    $ADMIN->add('localplugins', $settings);
+}
