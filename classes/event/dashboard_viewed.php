@@ -34,20 +34,41 @@ defined('MOODLE_INTERNAL') || die();
  */
 class dashboard_viewed extends \core\event\base {
 
+    /**
+     *  This function is used to initialize the event and define its base properties like
+     *  the event name, description, and related data.
+     *
+     * @return void
+     */
     protected function init() {
         $this->data['crud'] = 'r'; // 'r' = Read, indicating a view event.
         $this->data['edulevel'] = self::LEVEL_OTHER;
         $this->data['objecttable'] = ''; // No specific DB table associated.
     }
 
+    /**
+     *  Returns the name of the event.
+     *
+     * @return mixed
+     */
     public static function get_name() {
         return get_string('eventdashboardviewed', 'local_high_five');
     }
 
+    /**
+     * Returns the description of the event.
+     *
+     * @return string
+     */
     public function get_description() {
         return "The user with id '{$this->userid}' viewed the dashboard.";
     }
 
+    /**
+     * Returns the URL associated with the event.
+     *
+     * @return \moodle_url string The URL for the event.
+     */
     public function get_url() {
         return new \moodle_url('/my'); // Dashboard URL.
     }
