@@ -1,7 +1,11 @@
 # .github/workflows/ci.yml
 name: ci
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 0 1 */6 *' # Runs every six months to see if a new version of Moodle was released
 
 jobs:
   ci:
@@ -9,7 +13,3 @@ jobs:
     # Required if you plan to publish (uncomment the below)
     # secrets:
       # moodle_org_token: ${{ secrets.MOODLE_ORG_TOKEN }}
-    with:
-      disable_phpunit: true 
-      # TODO: Enable phpunit after this is fixed
-      # https://github.com/fulldecent/moodle-local_plugin_template/actions/runs/11263330981/job/31320985509#step:5:651

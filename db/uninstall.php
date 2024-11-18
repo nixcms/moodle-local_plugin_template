@@ -15,26 +15,28 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * High Five plugin main page display
+ * Code to be executed after the plugin's database schema has been uninstalled.
  *
  * @package     local_high_five
  * @license     http://opensource.org/licenses/MIT MIT License
- * @copyright   2024 William Entriken
+ * @copyright   2024 William Entriken <github.com@phor.net>
  */
 
-require_once('../../config.php');
-require_login();
+/**
+ * Uninstall the local_high_five plugin.
+ * This will drop the database table and clean up any data related to the plugin.
+ *
+ * @return void
+ */
+function xmldb_local_high_five_uninstall() {
+    global $DB;
 
-// Page setup.
-$pageurl = new moodle_url('/local/high_five/index.php');
-$PAGE->set_url($pageurl);
-$PAGE->set_context(context_system::instance());
-$PAGE->set_title(get_string('pluginname', 'local_high_five'));
+    // Define the table.
+    $table = new xmldb_table('local_high_five');
 
-// Display content.
-$sender = 'Will'; // For localization, could be sourced from user data in a real scenario.
-$highfiveheading = get_string('latesthighfive', 'local_high_five', $sender);
-$PAGE->set_heading($highfiveheading);
+    // Drop the table if it exists.
+    if ($DB->get_manager()->table_exists($table)) {
+        $DB->get_manager()->drop_table($table);
+    }
+}
 
-echo $OUTPUT->header();
-echo $OUTPUT->footer();

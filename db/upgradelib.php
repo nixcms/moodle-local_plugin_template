@@ -15,26 +15,26 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * High Five plugin main page display
+ * Upgrade functions for the local_high_five plugin.
  *
  * @package     local_high_five
  * @license     http://opensource.org/licenses/MIT MIT License
- * @copyright   2024 William Entriken
+ * @copyright   2024 William Entriken <github.com@phor.net>
  */
 
-require_once('../../config.php');
-require_login();
+/**
+ * Upgrade the local_high_five plugin.
+ *
+ * @param int $oldversion The version the plugin is upgrading from.
+ * @return bool True if the upgrade process is successful.
+ */
+function local_high_five_upgrade($oldversion) {
+    global $DB;
 
-// Page setup.
-$pageurl = new moodle_url('/local/high_five/index.php');
-$PAGE->set_url($pageurl);
-$PAGE->set_context(context_system::instance());
-$PAGE->set_title(get_string('pluginname', 'local_high_five'));
+    if ($oldversion < 2024111301) {
+        // Upgrade logic goes here, e.g., add/remove fields or tables.
+        upgrade_plugin_savepoint(true, 2024111301, 'local', 'high_five');
+    }
 
-// Display content.
-$sender = 'Will'; // For localization, could be sourced from user data in a real scenario.
-$highfiveheading = get_string('latesthighfive', 'local_high_five', $sender);
-$PAGE->set_heading($highfiveheading);
-
-echo $OUTPUT->header();
-echo $OUTPUT->footer();
+    return true;
+}

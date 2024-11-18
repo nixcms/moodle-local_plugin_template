@@ -15,12 +15,18 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * English strings
+ * High Five plugin main page display
  *
- * @package    local_high_five
- * @copyright  William Entriken
- * @license    http://opensource.org/licenses/MIT MIT License
+ * @package     local_high_five
+ * @license     http://opensource.org/licenses/MIT MIT License
+ * @copyright   2024 William Entriken
  */
 
 $string['pluginname'] = 'High Five';
 $string['latesthighfive'] = 'Latest high five is from {$a}.';
+$string['highfive:view'] = 'View High Five';
+$string['highfive:manage'] = 'Manage High Five settings';
+
+// Example Setting Strings
+$string['enable_feature'] = 'Enable High Five Feature'; // Title for the setting.
+$string['enable_feature_desc'] = 'Check this box to enable the High Five feature on the site.'; // Description for the setting.
