@@ -4,7 +4,7 @@ Use this template as a starting point for developing Moodle plugins.
 
 **STATUS:** This is a work-in-progress, supporting discussions on best practices.
 
-![File listing](docs/images/project-tree.png)
+![File listing](docs/images/listing.png)
 
 ## Key features
 
@@ -27,6 +27,7 @@ This repository offers a functional example of a Moodle plugin, with features li
 - [ ] **Scheduled task** to run background processing
 - [ ] **Custom JavaScript** for the user interface, which is built using (AMD??)
 - [x] **Unit test example** to ensure the plugin works as expected in the Catalyst CI system.
+- [x] **Event Logging Example** demonstrates how to log events in Moodle using the Events API..
 
 You can use these features as they are, modify them, or remove what you don’t need.
 
