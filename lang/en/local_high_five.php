@@ -23,7 +23,7 @@
  */
 
 $string['pluginname'] = 'High Five';
-$string['latesthighfive'] = 'Latest high five is from {$a}.';
+$string['latesthighfive'] = 'Latest High Five is from {$a}.';
 $string['highfive:view'] = 'View High Five';
 $string['highfive:manage'] = 'Manage High Five settings';
 
