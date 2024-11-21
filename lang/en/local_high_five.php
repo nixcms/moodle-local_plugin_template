@@ -35,3 +35,5 @@ $string['eventdashboardviewed'] = 'Dashboard viewed';
 // Example Admin page strings
 $string['adminpage'] = 'High Five Admin Page';
 $string['adminpagedesc'] = 'This is the admin page for the High Five plugin.';
+// Example Scheduled task to run background processing string
+$string['processhighfivesname'] = 'Process High Fives Task';
