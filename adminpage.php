@@ -15,23 +15,28 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * High Five plugin main page display
+ * High Five example of Admin users only page
  *
  * @package     local_high_five
  * @license     http://opensource.org/licenses/MIT MIT License
  * @copyright   2024 William Entriken
  */
 
-$string['pluginname'] = 'High Five';
-$string['latesthighfive'] = 'Latest High Five is from {$a}.';
-$string['highfive:view'] = 'View High Five';
-$string['highfive:manage'] = 'Manage High Five settings';
 
-// Example Setting strings
-$string['enable_feature'] = 'Enable High Five Feature'; // Title for the setting.
-$string['enable_feature_desc'] = 'Check this box to enable the High Five feature on the site.'; // Description for the setting.
-// String for custom logging example
-$string['eventdashboardviewed'] = 'Dashboard viewed';
-// Example Admin page strings
-$string['adminpage'] = 'High Five Admin Page';
-$string['adminpagedesc'] = 'This is the admin page for the High Five plugin.';
+require_once(__DIR__ . '/../../config.php');
+
+// Ensure the user is an admin.
+require_login();
+require_capability('moodle/site:config', context_system::instance());
+
+$PAGE->set_url(new moodle_url('/local/high_five/adminpage.php'));
+$PAGE->set_context(context_system::instance());
+$PAGE->set_title(get_string('adminpage', 'local_high_five'));
+
+echo $OUTPUT->header();
+
+// Page content goes here.
+echo html_writer::tag('h2', get_string('adminpage', 'local_high_five'));
+echo html_writer::tag('p', get_string('adminpagedesc', 'local_high_five'));
+
+echo $OUTPUT->footer();
