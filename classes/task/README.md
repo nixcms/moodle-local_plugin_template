@@ -20,6 +20,9 @@ The task class `\local_high_five\task\process_high_fives` is defined in `classes
    ```bash
    php admin/cli/scheduled_task.php --execute="\local_high_five\task\process_high_fives"
 
-
 ![Process High Fives Task](/docs/images/task.png)
 
+## References
+
+- [Moodle Scheduled Tasks Documentation](https://docs.moodle.org/405/en/Scheduled_tasks)
+- [Moodle Task API](https://moodledev.io/docs/4.5/apis/subsystems/task/scheduled)
