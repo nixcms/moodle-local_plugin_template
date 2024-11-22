@@ -23,7 +23,7 @@ This repository offers a functional example of a Moodle plugin, with features li
 - [x] **Database initialization and upgrade** scripts
 - [x] **Settings page** to configure the plugin using the standard Moodle admin settings interface
 - [x] **Admin page** to access functionality of this plugin that only administrators should see
-- [ ] **Scheduled task** to run background processing
+- [x] **Scheduled task** to run background processing
 - [x] **Custom JavaScript**: Demonstrates using AMD to load JavaScript in Moodle. Clicking the high-five emoji triggers a confetti effect, showcasing how to integrate JavaScript with Moodle.
 - [x] **Unit test example** to ensure the plugin works as expected in the Catalyst CI system.
 - [x] **Event Logging Example** demonstrates how to log events in Moodle using the Events API.
@@ -229,9 +229,10 @@ To compile the AMD modules:
    grunt
    ```
 
-This will compile the AMD modules and place the final files in the amd/build/ folder.
+This will compile the AMD modules and place the final files in the `amd/build/` folder.  
 
-#### Best Practice for Pushing Build Artifacts to GitHub
+If you face issues with CI during the build, refer to the [Catalyst README](https://github.com/catalyst/catalyst-moodle-workflows/tree/bbb7b5fba5f8304b8b07ad5534b666202d1751c8?tab=readme-ov-file#amd--grunt-bundling-issues) for troubleshooting tips.
+#### Best practice for pushing build artifacts to GitHub
 
 1. **Push Build Artifacts**
    - **When**: For production-ready plugins where users may not rebuild assets.
