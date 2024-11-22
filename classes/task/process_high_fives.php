@@ -26,10 +26,18 @@ namespace local_high_five\task;
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * Class process_high_fives
+ *
+ * Handles scheduled background processing for High Fives.
+ *
+ */
 class process_high_fives extends \core\task\scheduled_task {
 
     /**
      * Return the task name.
+     *
+     * @return string
      */
     public function get_name() {
         return get_string('processhighfivesname', 'local_high_five');
@@ -37,6 +45,8 @@ class process_high_fives extends \core\task\scheduled_task {
 
     /**
      * Execute the task.
+     *
+     * @return void
      */
     public function execute() {
         // Add your processing logic here.
